@@ -17,9 +17,17 @@ class AuthorsController < ApplicationController
     end
   end
 
+  def edit
+    @author = 
+  end
+
   private
 
   def author_params
     params.permit(:name, :email, :phone_number)
+  end
+
+  def set_author
+    @author = Author.find(params[:id])
   end
 end
