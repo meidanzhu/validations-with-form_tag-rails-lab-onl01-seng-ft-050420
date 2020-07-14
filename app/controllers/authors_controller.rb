@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   def show
-    @author = Author.find(params[:id])
+    set_author
   end
 
   def new
@@ -18,7 +18,17 @@ class AuthorsController < ApplicationController
   end
 
   def edit
-    @author =
+    set_author
+  end
+
+  def update
+    set_author
+    if @author.valid?
+      @author.update(author_params)
+      redirect_to author_path(@author)
+    else
+      render :edit
+    end
   end
 
   private
