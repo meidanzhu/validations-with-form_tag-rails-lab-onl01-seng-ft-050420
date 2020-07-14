@@ -18,7 +18,7 @@ class AuthorsController < ApplicationController
   end
 
   def edit
-    @author = 
+    @author =
   end
 
   private
